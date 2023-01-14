@@ -1,8 +1,6 @@
-import firebase from 'firebase/app'
-import 'firebase/auth'
-import 'firebase/firestore'
-import 'firebase/storage'
-
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/database';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
@@ -16,5 +14,12 @@ const firebaseConfig = {
     appId: "1:92083464719:web:d0b559ad17e3aa8339917a"
 };
 
-export const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+
+firebase.initializeApp(firebaseConfig);
+
+export const auth = firebase.auth();
+export const database = firebase.database();
+export const GoogleAuthProvider = new firebase.auth.GoogleAuthProvider();
+
+
+
